@@ -1,0 +1,14 @@
+.height{
+  margin-top: 15%;
+}
+.card{
+  background-color: #dededea5 ;
+  border: 2px solid #dedede;
+  border-radius: 5px;
+  height: 200px;
+  width: 200px;
+}
+
+.contentPanelStyle{
+  padding: auto auto;text-transform: capitalize ; font-weight: bold
+}
