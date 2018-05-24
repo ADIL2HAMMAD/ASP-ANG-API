@@ -8,6 +8,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CategorieComponent } from './categorie/categorie.component';
 import { HomeComponent } from './home/home.component';
 
+import {routes} from './routing.routing';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HomeComponent } from './home/home.component';
     HomeComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    routes
   ],
   providers: [],
   bootstrap: [AppComponent]
