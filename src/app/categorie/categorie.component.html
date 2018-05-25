@@ -1,2 +1,12 @@
-<button (click)="CategorieData();">  get Categorie data</button>
+<div>
+   <button (click)="CategorieData();">  get Categorie data</button>
+</div>
+
+<hr>
+
+<div>
+<input type="text" [(ngModel)]="categorieID"   placeholder="CategorieID">
+<button (click)="DeleteCategorie();">  Delete CategorieID  data</button>
+<span>{{categorieID}}</span>
+</div>
 

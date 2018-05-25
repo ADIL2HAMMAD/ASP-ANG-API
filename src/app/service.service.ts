@@ -18,12 +18,38 @@ export class ServiceService {
 
   constructor( private http : Http) { }
 
+
+
+  /* this part  is reserved To PRODUCT CRUD  operations*/
+
+
   getProduitData()  {
     return this.http.get(this.ServerWithProduitApiUrl).map(res => res.json()) ;
    }
 
-  getCategorieData()  {
-   return this.http.get(this.ServerWithCategorieApiUrl).map(res => res.json()) ;
+
+
+
+     /* End product CRUD  operations*/
+
+
+
+       /* this part  is reserved To CATEGORIE CRUD  operations*/
+
+
+  getCategorieData()  { return this.http.get(this.ServerWithCategorieApiUrl).map(res => res.json()) ; }
+
+
+  DeleteCategorieData(categorieID : number){
+    return this.http.delete(this.ServerWithCategorieApiUrl+"/"+categorieID);
   }
+
+
+
+
+
+
+       /* End product CRUD  operations*/
+
 
 }

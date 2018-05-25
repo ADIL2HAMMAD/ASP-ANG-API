@@ -1,4 +1,4 @@
-import {Http , Response}  from '@angular/http';
+
 import { ServiceService } from './../service.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -11,10 +11,13 @@ import { Component, OnInit } from '@angular/core';
 
 export class CategorieComponent implements OnInit
 {
+/*  VARIABLE DECLARATION */
+categorieID : number ;
 
+/* OUR CONSTRUCTOR */
   constructor( private service : ServiceService )  {   }
 
-
+/*  GET ALL CATEGORIES DATA */
   CategorieData()
   {
     this.service.getCategorieData()
@@ -22,7 +25,23 @@ export class CategorieComponent implements OnInit
   }
 
 
-  ngOnInit() {}
+/*  DELETE CATEGORIE THAT HAVE ID = categorieID   */
 
+  DeleteCategorie(){
+
+    console.log("before delete  " + this.categorieID);
+
+    this.service.DeleteCategorieData(this.categorieID).subscribe((res: any) => { }, error =>   console.log(error)   );
+
+    console.log("after delete  " + this.categorieID);
+
+    this.CategorieData();
+  }
+
+
+
+
+
+  ngOnInit() {}
 
 }
