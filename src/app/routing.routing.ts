@@ -1,6 +1,3 @@
-
-
-// tslint:disable-next-line:eofline
 import { ModuleWithProviders } from '@angular/core';
 import {Routes , RouterModule  } from '@angular/router';
 
@@ -24,7 +21,15 @@ const app_route: Routes = [
       path: 'categorie',
       component: CategorieComponent,
   },
-
+  {
+    path: '**',
+    component: HomeComponent
+  },
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
 
 
 
