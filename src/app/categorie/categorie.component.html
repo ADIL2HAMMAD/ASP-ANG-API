@@ -1,22 +1,29 @@
 <div>
-   <button (click)="CategorieData();">  get Categorie data</button>
+  <button (click)="CategorieData();">  get Categorie data</button>
 </div>
 
 <hr>
 
 <div>
-<input type="text" [(ngModel)]="categorieID"   placeholder="CategorieID">
-<button (click)="DeleteCategorie();">  Delete CategorieID  data</button>
-<span>{{categorieID}}</span>
+  <input type="text" [(ngModel)]="DeletedcategorieID"   placeholder="Deleted categorie ID">
+  <button (click)="DeleteCategorie();">  Delete CategorieID  data</button>
+  <span>{{DeletedcategorieID}}</span>
 </div>
 
 <hr>
 
 <div>
-    <input type="text" [(ngModel)]="catnom"    placeholder="nomcategorie">
-    <button (click)="AddCategorie();">  ADD Categorie  data</button>
-<!-- 
-    <span>nomCategorie   : <p  style="color: #1b75f3"> {{nomcategorie}}</p>   </span>  -->
+  <input type="text" [(ngModel)]="AddCategorieNom"    placeholder="Add Categorie  Nom">
+  <button (click)="AddCategorie();">  ADD Categorie  data</button>
+</div>
 
-<!--     <span >Array categorieModel  : <p style="color: rgb(97, 225, 97)"> {{categorieModel.nomCategorie}}</p> </span> -->
-    </div>
+<hr>
+
+<div>
+<input type="text" [(ngModel)]="UpdatedCategorieNom"   placeholder="Updated categorie Nom">
+<input type="number" [(ngModel)]="UpdatedCategorieID"   placeholder="Updated categorie  ID">
+<button (click)="UpdateCategorie();">  Updated CategorieID  data</button>
+<span>{{UpdatedCategorieID}}  &  {{UpdatedCategorieNom}}</span>
+</div>
+
+<hr>

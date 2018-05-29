@@ -1,1 +1,34 @@
-<button (click)="ProduitData();">  get Produit data</button>
+<div>
+  <button (click)="ProduitData();">  get Produit data</button>
+</div>
+
+<hr>
+<h1>DELETE Produit Section</h1>
+<div>
+  <input type="text" [(ngModel)]="DeletedProduitID"   placeholder="Deleted categorie ID">
+  <button (click)="DeleteProduit();">  Delete CategorieID  data</button>
+  <span>{{DeletedcategorieID}}</span>
+</div>
+
+<hr>
+
+<div>
+  <h1>ADD Produit Section</h1>
+  <input type="text" [(ngModel)]="AddProduitNom"    placeholder="Add Categorie  Nom">
+  <input type="text" [(ngModel)]="designationProduit"    placeholder="designationProduit">
+  <input type="text" [(ngModel)]="prixProduit"    placeholder="Add Categorie  Nom">
+  <input type="text" [(ngModel)]="quantiteProduit"    placeholder="Add Categorie  Nom">
+
+  <button (click)="AddProduit();">  ADD Categorie  data</button>
+</div>
+
+<hr>
+<h1>UPDATE Produit Section</h1>
+<div>
+<input type="text" [(ngModel)]="UpdatedProduitNom"   placeholder="Updated Produit Nom">
+<input type="number" [(ngModel)]="UpdatedProduitID"   placeholder="Updated Produit  ID">
+<button (click)="UpdateProduit();">  Updated Produit  data</button>
+<!-- <span>{{UpdatedCategorieID}}  &  {{UpdatedCategorieNom}}</span> -->
+</div>
+
+<hr>

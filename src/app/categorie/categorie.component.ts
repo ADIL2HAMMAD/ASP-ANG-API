@@ -16,16 +16,18 @@ export class CategorieComponent implements OnInit
 
 
 
-/*  VARIABLE DECLARATION */
-  categorieID : number ;
-  catnom :string ;
-  public Cat = new CategorieModel();
+  /*  VARIABLE DECLARATION */
+  private DeletedcategorieID : number ;
+  private UpdatedCategorieID : number ;
+  private AddCategorieNom :string ;
+  private UpdatedCategorieNom :string ;
+  private Cat = new CategorieModel();
 
 
 
 
 
-/* OUR CONSTRUCTOR */
+  /* OUR CONSTRUCTOR */
   constructor( private service : ServiceService  )  {
 
   }
@@ -34,9 +36,8 @@ export class CategorieComponent implements OnInit
 
 
 
-/*  GET ALL CATEGORIES DATA */
-  CategorieData()
-  {
+  /*  GET ALL CATEGORIES DATA */
+  CategorieData() {
     this.service.getCategorieData()
     .subscribe(value => {    console.log(value);   });
   }
@@ -44,15 +45,12 @@ export class CategorieComponent implements OnInit
 
 
 
-/*  DELETE CATEGORIE THAT HAVE ID = categorieID   */
-
+  /*  DELETE CATEGORIE THAT HAVE ID = categorieID   */
   DeleteCategorie(){
 
-    console.log("before delete  " + this.categorieID);
+    this.service.DeleteCategorieData(this.DeletedcategorieID).subscribe((res: any) => { }, error =>   console.log(error)   );
 
-    this.service.DeleteCategorieData(this.categorieID).subscribe((res: any) => { }, error =>   console.log(error)   );
-
-    console.log("after delete  " + this.categorieID);
+    console.log("DeletedcategorieID is :  " + this.DeletedcategorieID);
 
     this.CategorieData();
   }
@@ -61,12 +59,23 @@ export class CategorieComponent implements OnInit
 
 
   /*  ADD A NEW  CATEGORIE  */
-
   AddCategorie(   ){
-this.Cat.nomCategorie = "Aa";
+    this.Cat.nomCategorie = this.AddCategorieNom ;
     this.service.AddCategorieData(this.Cat);
 
-}
+  }
+
+
+
+  /* UPDATE CATEGORIE THAT HAVE   ID = categorieID  */
+  UpdateCategorie(){
+    this.Cat.nomCategorie = this.UpdatedCategorieNom ;
+    this.Cat.categorieID = this.UpdatedCategorieID ;
+    this.service.UpdateCategorieData(  this.Cat) ;
+
+  }
+
+
 
 
 
