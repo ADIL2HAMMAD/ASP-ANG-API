@@ -1,6 +1,7 @@
-
+import { CategorieModel } from './../categorieModel.Model';
 import { ServiceService } from './../service.service';
 import { Component, OnInit } from '@angular/core';
+
 
 
 @Component({
@@ -11,11 +12,27 @@ import { Component, OnInit } from '@angular/core';
 
 export class CategorieComponent implements OnInit
 {
+
+
+
+
 /*  VARIABLE DECLARATION */
-categorieID : number ;
+  categorieID : number ;
+  catnom :string ;
+  public Cat = new CategorieModel();
+
+
+
+
 
 /* OUR CONSTRUCTOR */
-  constructor( private service : ServiceService )  {   }
+  constructor( private service : ServiceService  )  {
+
+  }
+
+
+
+
 
 /*  GET ALL CATEGORIES DATA */
   CategorieData()
@@ -23,6 +40,8 @@ categorieID : number ;
     this.service.getCategorieData()
     .subscribe(value => {    console.log(value);   });
   }
+
+
 
 
 /*  DELETE CATEGORIE THAT HAVE ID = categorieID   */
@@ -41,7 +60,19 @@ categorieID : number ;
 
 
 
+  /*  ADD A NEW  CATEGORIE  */
 
-  ngOnInit() {}
+  AddCategorie(   ){
+this.Cat.nomCategorie = "Aa";
+    this.service.AddCategorieData(this.Cat);
+
+}
+
+
+
+  ngOnInit() {
+
+
+  }
 
 }
