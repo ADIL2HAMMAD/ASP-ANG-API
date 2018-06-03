@@ -1,0 +1,23 @@
+.form-group{
+margin-bottom: 15px;
+}
+
+label{
+margin-bottom: 15px;
+}
+
+input,
+input::-webkit-input-placeholder {
+  font-size: 11px;
+  padding-top: 3px;
+}
+
+.form-control {
+  height: auto!important;
+padding: 8px 12px !important;
+}
+
+
+.login-button{
+margin-top: 5px;
+}

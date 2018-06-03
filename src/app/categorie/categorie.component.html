@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
   <button (click)="CategorieData();">  get Categorie data</button>
 </div>
 
@@ -20,10 +20,47 @@
 <hr>
 
 <div>
-<input type="text" [(ngModel)]="UpdatedCategorieNom"   placeholder="Updated categorie Nom">
-<input type="number" [(ngModel)]="UpdatedCategorieID"   placeholder="Updated categorie  ID">
-<button (click)="UpdateCategorie();">  Updated CategorieID  data</button>
-<span>{{UpdatedCategorieID}}  &  {{UpdatedCategorieNom}}</span>
+  <input type="text" [(ngModel)]="UpdatedCategorieNom"   placeholder="Updated categorie Nom">
+  <input type="number" [(ngModel)]="UpdatedCategorieID"   placeholder="Updated categorie  ID">
+  <button (click)="UpdateCategorie();">  Updated CategorieID  data</button>
+  <span>{{UpdatedCategorieID}}  &  {{UpdatedCategorieNom}}</span>
 </div>
 
 <hr>
+-->
+
+
+
+
+
+
+<div class="container">
+<div> <h4 class="jumbotron " style="text-align: center;"> Categorie <b>Details</b></h4></div>
+
+<div class="row">
+
+
+
+<div class="col-md-6">
+    <app-categorie-form></app-categorie-form>
+</div>
+
+
+
+<div class="col-md-6" >
+ <!--    <app-categorie-list></app-categorie-list> -->
+<button (click)="CategorieData();">GET DATA</button>
+</div>
+
+
+<div  *ngFor="let data of mydata" >
+  <h3>name : {{data.nomCategorie}} </h3>
+  <h3>id : {{data.categorieID}} </h3>
+</div>
+
+
+
+</div><!-- end of row -->
+
+</div><!-- end of container -->
+

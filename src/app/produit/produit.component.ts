@@ -1,7 +1,10 @@
+import { Observable } from 'rxjs/Observable';
+import { element } from 'protractor';
 import { CategorieComponent } from './../categorie/categorie.component';
 import { ProduitModel } from './../produitModel.model';
 import { ServiceService } from './../service.service';
 import { Component, OnInit } from '@angular/core';
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-produit',
@@ -17,12 +20,13 @@ export class ProduitComponent implements OnInit {
   /*  VARIABLE DECLARATION */
   private DeletedProduitID : number ;
   private UpdatedProduitID : number ;
-  private AddProduitNom :string ;
   private UpdatedProduitNom :string ;
   private prod = new ProduitModel();
-
-
-
+  private  selectedCategorieId : number ;
+  private designationProduit :string ;
+  private prixProduit  : number ;
+  private quantiteProduit : number ;
+  private myIDS = [{}];
 
 
   /* OUR CONSTRUCTOR */
@@ -36,24 +40,23 @@ export class ProduitComponent implements OnInit {
 
   /*  GET ALL ProduitS DATA */
   ProduitData() {
-    /*     this.service.getProduitData()
-    .subscribe(value => {    console.log(value);   }); */
-
-     this.service.getCategorieData()
+        this.service.getProduitData()
+    .subscribe(value => {    console.log(value);   });
+ /*
+    this.service.getCategorieData()
     .subscribe(value => {
       console.log(value);
-
-/*       let cat = JSON.stringify(value);
-      let body = JSON.parse(cat);     console.log("Produit => body => categorieID   is : "+cat ); */
-value.forEach(element => {
-  console.log( element.categorieID);
-
-});
-
-
+      value.forEach(element => {
+        console.log( "cats ids :" +element.categorieID);
+        var  categoriesID = element.categorieID;
+        console.log( "categoriesID :" +categoriesID);
+      });
     });
-
+*/
   }
+
+
+
 
 
 
@@ -72,11 +75,14 @@ value.forEach(element => {
 
 
   /*  ADD A NEW  Produit  */
-  /*   AddProduit(   ){
-    this.prod = this.AddProduitNom ;
+  AddProduit(   ){
+/*     this.prod.designation = this.designationProduit ;
+    this.prod.prix = this.prixProduit ;
+    this.prod.quantite = this.quantiteProduit ;
+    this.prod.categorieID = this.selectedCategorieId ;
     this.service.AddProduitData(this.prod);
-
-  } */
+ */
+  }
 
 
 
@@ -92,8 +98,28 @@ value.forEach(element => {
 
 
 
-
   ngOnInit() {
-  }
 
-}
+ /*       this.service.getCategorieData()
+                .subscribe( res => {
+
+                const localVar = JSON.stringify(res) ;
+               const array =JSON.parse(localVar);
+console.log("array"+localVar);
+
+               var obj = {};
+               array.forEach(element => {
+                  array.map(k => Object.keys(k).forEach(a => obj[a] = k[a]))
+               });
+
+
+               console.log(obj)
+
+            }) */
+
+
+
+
+}/*  End of  ngOnInit Hooks  */
+
+}/* End of  class ProduitComponent */

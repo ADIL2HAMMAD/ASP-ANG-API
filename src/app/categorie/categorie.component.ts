@@ -1,3 +1,4 @@
+import { element } from 'protractor';
 import { CategorieModel } from './../categorieModel.Model';
 import { ServiceService } from './../service.service';
 import { Component, OnInit } from '@angular/core';
@@ -27,6 +28,7 @@ export class CategorieComponent implements OnInit
 
 
 
+
   /* OUR CONSTRUCTOR */
   constructor( private service : ServiceService  )  {
 
@@ -34,13 +36,11 @@ export class CategorieComponent implements OnInit
 
 
 
-
-
   /*  GET ALL CATEGORIES DATA */
   CategorieData() {
-    this.service.getCategorieData()
-    .subscribe(value => {    console.log(value);   });
   }
+
+
 
 
 
@@ -80,7 +80,6 @@ export class CategorieComponent implements OnInit
 
 
   ngOnInit() {
-
 
   }
 

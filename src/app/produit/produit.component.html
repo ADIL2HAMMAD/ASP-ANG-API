@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
   <button (click)="ProduitData();">  get Produit data</button>
 </div>
 
@@ -14,12 +14,19 @@
 
 <div>
   <h1>ADD Produit Section</h1>
-  <input type="text" [(ngModel)]="AddProduitNom"    placeholder="Add Categorie  Nom">
   <input type="text" [(ngModel)]="designationProduit"    placeholder="designationProduit">
-  <input type="text" [(ngModel)]="prixProduit"    placeholder="Add Categorie  Nom">
-  <input type="text" [(ngModel)]="quantiteProduit"    placeholder="Add Categorie  Nom">
+  <input type="number" [(ngModel)]="prixProduit"    placeholder="prixProduit">
+  <input type="number" [(ngModel)]="quantiteProduit"    placeholder="quantiteProduit">
 
-  <button (click)="AddProduit();">  ADD Categorie  data</button>
+  <p>Elément sélectionné : {{selectedCategorieId}}</p>
+  <select [(ngModel)] ="selectedCategorieId"  >
+      <option disabled hidden [value]="selectUndefinedOptionValue">-- select --</option>
+        <option  *ngFor="let catids of categoriesID"  value="{{catids.categoriesID}}"  >{{catids.categoriesID}}</option>
+   </select>
+
+
+
+  <button (click)="AddProduit();">  ADD Produit  data</button>
 </div>
 
 <hr>
@@ -28,7 +35,69 @@
 <input type="text" [(ngModel)]="UpdatedProduitNom"   placeholder="Updated Produit Nom">
 <input type="number" [(ngModel)]="UpdatedProduitID"   placeholder="Updated Produit  ID">
 <button (click)="UpdateProduit();">  Updated Produit  data</button>
-<!-- <span>{{UpdatedCategorieID}}  &  {{UpdatedCategorieNom}}</span> -->
+<span>{{UpdatedCategorieID}}  &  {{UpdatedCategorieNom}}</span> -
 </div>
 
 <hr>
+ -->
+
+ <!-- <div>
+  <button (click)="CategorieData();">  get Categorie data</button>
+</div>
+
+<hr>
+
+<div>
+  <input type="text" [(ngModel)]="DeletedcategorieID"   placeholder="Deleted categorie ID">
+  <button (click)="DeleteCategorie();">  Delete CategorieID  data</button>
+  <span>{{DeletedcategorieID}}</span>
+</div>
+
+<hr>
+
+<div>
+  <input type="text" [(ngModel)]="AddCategorieNom"    placeholder="Add Categorie  Nom">
+  <button (click)="AddCategorie();">  ADD Categorie  data</button>
+</div>
+
+<hr>
+
+<div>
+  <input type="text" [(ngModel)]="UpdatedCategorieNom"   placeholder="Updated categorie Nom">
+  <input type="number" [(ngModel)]="UpdatedCategorieID"   placeholder="Updated categorie  ID">
+  <button (click)="UpdateCategorie();">  Updated CategorieID  data</button>
+  <span>{{UpdatedCategorieID}}  &  {{UpdatedCategorieNom}}</span>
+</div>
+
+<hr>
+-->
+
+
+
+<!-- ************************************************************************************************ -->
+<!-- ================================================================================ -->
+
+
+<div class="container">
+    <div> <h4 class="jumbotron " style="text-align: center;"> Produit <b>Details</b></h4></div>
+
+    <div class="row">
+
+
+
+    <div class="col-md-6">
+        <app-produit-form></app-produit-form>
+    </div>
+
+
+
+    <div class="col-md-6" >
+        <app-produit-list></app-produit-list>
+    </div>
+
+
+
+    </div><!-- end of row -->
+
+    </div><!-- end of container -->
+

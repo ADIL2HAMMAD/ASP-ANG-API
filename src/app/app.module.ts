@@ -12,9 +12,15 @@ import { ProduitComponent } from './produit/produit.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CategorieComponent } from './categorie/categorie.component';
 import { HomeComponent } from './home/home.component';
+import { CategorieFormComponent } from './categorie/categorie-form/categorie-form.component';
+import { CategorieListComponent } from './categorie/categorie-list/categorie-list.component';
+import { ProduitFormComponent } from './produit/produit-form/produit-form.component';
+import { ProduitListComponent } from './produit/produit-list/produit-list.component';
+
 
 /* inmport of Routing File */
 import {routes} from './routing.routing';
+
 
 
 
@@ -26,7 +32,11 @@ import {routes} from './routing.routing';
     ProduitComponent,
     NavbarComponent,
     CategorieComponent,
-    HomeComponent
+    HomeComponent,
+    CategorieFormComponent,
+    CategorieListComponent,
+    ProduitFormComponent,
+    ProduitListComponent
   ],
   imports: [
     HttpModule,

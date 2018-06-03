@@ -36,7 +36,7 @@ export class ServiceService {
   /* this part  is reserved To PRODUCT CRUD  operations*/
 
 
-  getProduitData()  { return this.http.get(this.ServerWithProduitApiUrl).map(res => res.json()) ; }
+  getProduitData() : Observable<any>  { return this.http.get(this.ServerWithProduitApiUrl).map(res => res.json()); }
 
 
   DeleteProduitData(ProduitID : number){  return this.http.delete(this.ServerWithProduitApiUrl+ProduitID); }
@@ -45,8 +45,8 @@ export class ServiceService {
 
   AddProduitData(Produit : ProduitModel ){
     /*  output of Produit is an array of Objects => JSON.stringify(Produit)  will  format the result to Json objects in order to post it to DB using our Web Api */
-    let body = JSON.stringify(Produit);
-    return this.http.post(this.ServerWithProduitApiUrl, body ,options)
+
+    return this.http.post(this.ServerWithProduitApiUrl, Produit ,options)
     .map(res =>  res.json())
     .subscribe( ) ;
   }
@@ -81,7 +81,7 @@ export class ServiceService {
   /* this part  is reserved To CATEGORIE CRUD  operations*/
 
 
-  getCategorieData()  { return this.http.get(this.ServerWithCategorieApiUrl).map(res => res.json()) ; }
+  getCategorieData()  { return this.http.get(this.ServerWithCategorieApiUrl).map((res : Response) => res.json()) ; }
 
 
   DeleteCategorieData(categorieID : number){  return this.http.delete(this.ServerWithCategorieApiUrl+categorieID); }
