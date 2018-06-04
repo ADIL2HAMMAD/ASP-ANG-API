@@ -1,10 +1,11 @@
+import { routes } from './../routing.routing';
 import { Observable } from 'rxjs/Observable';
-import { element } from 'protractor';
 import { CategorieComponent } from './../categorie/categorie.component';
 import { ProduitModel } from './../produitModel.model';
 import { ServiceService } from './../service.service';
 import { Component, OnInit } from '@angular/core';
-import { forEach } from '@angular/router/src/utils/collection';
+import { ToastrService } from 'ngx-toastr';
+import { Router , ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-produit',
@@ -30,7 +31,7 @@ export class ProduitComponent implements OnInit {
 
 
   /* OUR CONSTRUCTOR */
-  constructor( private service : ServiceService  )  {
+  constructor( private service : ServiceService , private toastr : ToastrService, private router : Router , private route : ActivatedRoute )  {
 
   }
 
@@ -72,6 +73,13 @@ export class ProduitComponent implements OnInit {
   }
 
 
+  onDelete(id?: number) {
+    if (confirm('Are you sure to delete this record ?') == true) {
+        this.toastr.warning("Deleted Successfully","Employee Register");
+    }
+  }
+
+
 
 
   /*  ADD A NEW  Produit  */
@@ -95,6 +103,12 @@ export class ProduitComponent implements OnInit {
   } */
 
 
+  showadd(){
+    this.router.navigate(['add'], { relativeTo: this.route });
+  }
+  showupdate(){
+    this.router.navigate(['update'], { relativeTo: this.route });
+  }
 
 
 

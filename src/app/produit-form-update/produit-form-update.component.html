@@ -1,0 +1,54 @@
+
+<div class="main-login main-center">
+
+    <form #prodform="ngForm">
+
+      <div class="form-group">
+        <label for="designation" class="cols-sm-2 control-label">Designation </label>
+        <div class="cols-sm-10">
+          <div class="input-group">
+            <span class="input-group-addon"></span>
+            <input type="text" class="form-control" #designation="ngModel" [(ngModel)]="designationProduit" name="designation" required id="designation"  placeholder="designation ..."/>
+            <div class="validation-error" *ngIf="designation.touched && designation.invalid">This fields is Required</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="prix" class="cols-sm-2 control-label">Prix</label>
+        <div class="cols-sm-10">
+          <div class="input-group">
+            <span class="input-group-addon"></span>
+            <input type="number" class="form-control" #prix="ngModel" [(ngModel)]="prixProduit" name="prix" id="prix" required placeholder="Prix ..."/>
+            <div class="validation-error" *ngIf="prix.touched && prix.invalid">This fields is Required</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="quantite" class="cols-sm-2 control-label">Quantite</label>
+        <div class="cols-sm-10">
+          <div class="input-group">
+            <span class="input-group-addon"></span>
+            <input type="number" class="form-control" #quantite="ngModel" [(ngModel)]="quantiteProduit" name="quantite" id="quantite" required  placeholder="Quantite ..."/>
+            <div class="validation-error" *ngIf="quantite.touched && quantite.invalid">This fields is Required</div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="form-group ">
+      <div class="  col-sm-6">
+          <button type="submit"  [disabled]="!prodform.valid"  (click)="addproduit(prodform);" id="button" class="btn btn-success btn-lg btn-block ">Submit</button>
+      </div>
+      <div class=" col-sm-6 ">
+        <button type="button" (click)="previous();"  id="button" class="btn btn-secondary btn-lg btn-block ">Annuler </button>
+      </div>
+    </div>
+
+
+    </form>
+  </div>
+

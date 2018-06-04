@@ -8,7 +8,8 @@
       <div class="cols-sm-10">
         <div class="input-group">
           <span class="input-group-addon"></span>
-          <input type="text" class="form-control" [(ngModel)]="designationProduit" name="designation" required id="designation"  placeholder="designation ..."/>
+          <input type="text" class="form-control" #designation="ngModel" [(ngModel)]="designationProduit" name="designation" required id="designation"  placeholder="designation ..."/>
+          <div class="validation-error" *ngIf="designation.touched && designation.invalid">This fields is Required</div>
         </div>
       </div>
     </div>
@@ -18,7 +19,8 @@
       <div class="cols-sm-10">
         <div class="input-group">
           <span class="input-group-addon"></span>
-          <input type="number" class="form-control"  [(ngModel)]="prixProduit" name="prix" id="prix" required placeholder="Prix ..."/>
+          <input type="number" class="form-control" #prix="ngModel" [(ngModel)]="prixProduit" name="prix" id="prix" required placeholder="Prix ..."/>
+          <div class="validation-error" *ngIf="prix.touched && prix.invalid">This fields is Required</div>
         </div>
       </div>
     </div>
@@ -28,15 +30,16 @@
       <div class="cols-sm-10">
         <div class="input-group">
           <span class="input-group-addon"></span>
-          <input type="number" class="form-control"  [(ngModel)]="quantiteProduit" name="quantite" id="quantite" required  placeholder="Quantite ..."/>
+          <input type="number" class="form-control" #quantite="ngModel" [(ngModel)]="quantiteProduit" name="quantite" id="quantite" required  placeholder="Quantite ..."/>
+          <div class="validation-error" *ngIf="quantite.touched && quantite.invalid">This fields is Required</div>
         </div>
       </div>
     </div>
 
-    <div class="form-group " style="color: black;">
+    <div class="form-group " >
 
-        <label for="quantite" class="cols-sm-2 control-label">Categorie :</label>
-          <select class="form-control form-control-lg" (change)="getid($event)"  >
+        <label class="cols-sm-2 control-label">Categorie : </label>
+          <select required   class="form-control form-control-lg" (change)="getid($event)"  >
             <option disabled hidden [value]="selectUndefinedOptionValue">-- select --</option>
             <option  *ngFor="let catids of categories"  value="{{catids.categorieID}}"  >{{catids.nomCategorie}}</option>
           </select>
@@ -46,10 +49,10 @@
 
     <div class="form-group ">
     <div class="  col-sm-8">
-        <button type="submit" (click)="addproduit();" id="button" class="btn btn-success btn-lg btn-block ">Submit</button>
+        <button type="submit"  [disabled]="!prodform.valid"  (click)="addproduit(prodform);" id="button" class="btn btn-success btn-lg btn-block ">Submit</button>
     </div>
     <div class=" col-sm-4 ">
-      <button type="button"  (click)="resetfeilds();"  id="button" class="btn btn-secondary btn-lg btn-block ">reset </button>
+      <button type="button"  (click)="resetfeilds(prodform);"  id="button" class="btn btn-secondary btn-lg btn-block ">reset </button>
     </div>
   </div>
 

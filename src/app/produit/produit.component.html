@@ -20,9 +20,9 @@
 
   <p>Elément sélectionné : {{selectedCategorieId}}</p>
   <select [(ngModel)] ="selectedCategorieId"  >
-      <option disabled hidden [value]="selectUndefinedOptionValue">-- select --</option>
-        <option  *ngFor="let catids of categoriesID"  value="{{catids.categoriesID}}"  >{{catids.categoriesID}}</option>
-   </select>
+    <option disabled hidden [value]="selectUndefinedOptionValue">-- select --</option>
+    <option  *ngFor="let catids of categoriesID"  value="{{catids.categoriesID}}"  >{{catids.categoriesID}}</option>
+  </select>
 
 
 
@@ -32,16 +32,16 @@
 <hr>
 <h1>UPDATE Produit Section</h1>
 <div>
-<input type="text" [(ngModel)]="UpdatedProduitNom"   placeholder="Updated Produit Nom">
-<input type="number" [(ngModel)]="UpdatedProduitID"   placeholder="Updated Produit  ID">
-<button (click)="UpdateProduit();">  Updated Produit  data</button>
-<span>{{UpdatedCategorieID}}  &  {{UpdatedCategorieNom}}</span> -
+  <input type="text" [(ngModel)]="UpdatedProduitNom"   placeholder="Updated Produit Nom">
+  <input type="number" [(ngModel)]="UpdatedProduitID"   placeholder="Updated Produit  ID">
+  <button (click)="UpdateProduit();">  Updated Produit  data</button>
+  <span>{{UpdatedCategorieID}}  &  {{UpdatedCategorieNom}}</span> -
 </div>
 
 <hr>
- -->
+-->
 
- <!-- <div>
+<!-- <div>
   <button (click)="CategorieData();">  get Categorie data</button>
 </div>
 
@@ -79,25 +79,53 @@
 
 
 <div class="container">
-    <div> <h4 class="jumbotron " style="text-align: center;"> Produit <b>Details</b></h4></div>
+  <div> <h4 class="jumbotron " style="text-align: center;"> Produit <b>Details</b></h4></div>
+
+  <div class="row">
+
+
+
+
+<div class="row">
+    <div>
+      <button   (click)="showadd();" class="btn btn-success pull-right" style="margin: 7px 30px; padding: 7px 20px;">Ajouter Produit</button>
+    </div>
+
+    <div class="col-md-12" >
+      <table class="table table-hover">
+        <tr>
+          <th >Produit ID</th>
+          <th>Designation</th>
+          <th >Prix</th>
+          <th >Quantite</th>
+          <th>categorie ID</th>
+          <th>Actions </th>
+        </tr>
+
+        <tr>
+          <td >...</td>
+          <td >...</td>
+          <td >...</td>
+          <td >...</td>
+          <td >...</td>
+          <td >
+            <a  (click)="showupdate();" class="btn" ><i class="fa fa-pencil-square-o"></i></a>
+            <a    class="btn text-danger" (click)="onDelete();"><i class="fa fa-trash-o"></i></a>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
 
     <div class="row">
+        <div >
+            <router-outlet>  </router-outlet>
+
+        </div>
+      </div>
 
 
+  </div><!-- end of row -->
 
-    <div class="col-md-6">
-        <app-produit-form></app-produit-form>
-    </div>
-
-
-
-    <div class="col-md-6" >
-        <app-produit-list></app-produit-list>
-    </div>
-
-
-
-    </div><!-- end of row -->
-
-    </div><!-- end of container -->
+</div><!-- end of container -->
 

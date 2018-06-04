@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../../service.service';
 
@@ -8,7 +9,12 @@ import { ServiceService } from '../../service.service';
 })
 export class ProduitListComponent implements OnInit {
 
-  constructor(private service : ServiceService) { }
+
+         constructor(private service : ServiceService , private toastr : ToastrService ) { }
+
+
+
+
 
   ngOnInit() {
   }

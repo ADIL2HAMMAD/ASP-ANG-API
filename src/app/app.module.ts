@@ -4,6 +4,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ServiceService } from './service.service';
 import { HttpModule } from '@angular/http';
+import { ToastrModule  } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 /* Import of The Useable Component */
@@ -20,6 +23,7 @@ import { ProduitListComponent } from './produit/produit-list/produit-list.compon
 
 /* inmport of Routing File */
 import {routes} from './routing.routing';
+import { ProduitFormUpdateComponent } from './produit-form-update/produit-form-update.component';
 
 
 
@@ -36,13 +40,16 @@ import {routes} from './routing.routing';
     CategorieFormComponent,
     CategorieListComponent,
     ProduitFormComponent,
-    ProduitListComponent
+    ProduitListComponent,
+    ProduitFormUpdateComponent
   ],
   imports: [
     HttpModule,
     FormsModule,
     BrowserModule,
-    routes
+    routes,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [ServiceService ],
   bootstrap: [AppComponent]
