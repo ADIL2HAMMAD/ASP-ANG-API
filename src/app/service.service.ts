@@ -59,6 +59,7 @@ export class ServiceService {
 
 
 
+
   UpdateProduitData( Produit : ProduitModel ){
     let cat = JSON.stringify(Produit);
     let body = JSON.parse(cat);     console.log("Produit => body => idProduit   is : "+body.ProduitID  );
@@ -103,8 +104,9 @@ export class ServiceService {
     .subscribe( ) ;
   }
 
-  UpdateCategorieData( categorie : CategorieModel ){
 
+
+  UpdateCategorieData( categorie : CategorieModel ){
     let cat = JSON.stringify(categorie);
     let body = JSON.parse(cat);     console.log("Categorie => body => idCategorie   is : "+body.categorieID  );
    return this.http.put(this.ServerWithCategorieApiUrl+body.categorieID , body ,options)

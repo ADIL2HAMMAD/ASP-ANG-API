@@ -24,6 +24,7 @@ import { ProduitFormComponent } from './produit/produit-form/produit-form.compon
 /* inmport of Routing File */
 import {routes} from './routing.routing';
 import { ProduitFormUpdateComponent } from './produit-form-update/produit-form-update.component';
+import { SharedproduitService } from './sharedproduit.service';
 
 
 
@@ -50,7 +51,7 @@ import { ProduitFormUpdateComponent } from './produit-form-update/produit-form-u
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
   ],
-  providers: [ServiceService ],
+  providers: [ServiceService , SharedproduitService ],
   bootstrap: [AppComponent]
 })
 

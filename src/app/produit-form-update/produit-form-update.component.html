@@ -40,12 +40,11 @@
 
 
       <div class="form-group ">
-      <div class="  col-sm-6">
-          <button type="submit"  [disabled]="!prodform.valid"  (click)="addproduit(prodform);" id="button" class="btn btn-success btn-lg btn-block ">Submit</button>
-      </div>
-      <div class=" col-sm-6 ">
-        <button type="button" (click)="previous();"  id="button" class="btn btn-secondary btn-lg btn-block ">Annuler </button>
-      </div>
+
+          <button type="submit"  [disabled]="!prodform.valid"   (click)="previous();" id="button" class="btn btn-success btn-lg btn-block ">Submit</button>
+
+        <button type="button"  (click)="updateproduit();"  id="button" class="btn btn-secondary btn-lg btn-block ">Update </button>
+
     </div>
 
 
