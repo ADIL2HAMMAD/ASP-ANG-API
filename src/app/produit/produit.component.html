@@ -102,15 +102,16 @@
           <th>Actions </th>
         </tr>
 
-        <tr>
-          <td >...</td>
-          <td >...</td>
-          <td >...</td>
-          <td >...</td>
-          <td >...</td>
+        <tr *ngFor="let prod of produits" >
+          <td >{{prod.produitID}}</td>
+          <td >{{prod.designation}}</td>
+          <td >{{prod.prix}}</td>
+          <td >{{prod.quantite}}</td>
+          <td >{{prod.categorieID}}</td>
+
           <td >
-            <a  (click)="showupdate();" class="btn" ><i class="fa fa-pencil-square-o"></i></a>
-            <a    class="btn text-danger" (click)="onDelete();"><i class="fa fa-trash-o"></i></a>
+            <a   routerLink="./update"    (click)="UpdateProduit(prod);"     class="btn" >           <i class="fa fa-pencil-square-o">    </i>          </a>
+            <a   (click)="DeleteProduit(prod.produitID);"      class="btn text-danger">                <i class="fa fa-trash-o">                     </i>          </a>
           </td>
         </tr>
       </table>

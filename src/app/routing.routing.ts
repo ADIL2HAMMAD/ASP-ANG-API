@@ -10,29 +10,30 @@ import { ProduitFormUpdateComponent } from './produit-form-update/produit-form-u
 
 
 
-  const app_route: Routes = [
-/*     {
-        path: 'produit',
-        component: ProduitComponent,
-    }, */
-    {
-        path: 'home',
-        component: HomeComponent,
-    },
+const app_route: Routes = [
+/*    {
+    path: 'produit',
+    component: ProduitComponent,
+  }, */
+  {
+    path: 'home',
+    component: HomeComponent,
+  },
 
   {
-      path: 'categorie',
-      component: CategorieComponent,
+    path: 'categorie',
+    component: CategorieComponent,
   },
-/*   {
-    path: '**',
+  {
+    path: '*',
     component: HomeComponent
-  }, */
-/*   {
-    path: '',
+  },
+  {
+     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
-  }, */
+  },
+
   {
     path: 'produit',
     component: ProduitComponent,
@@ -40,7 +41,7 @@ import { ProduitFormUpdateComponent } from './produit-form-update/produit-form-u
       { path: 'add', component: ProduitFormComponent},
       { path: 'update', component: ProduitFormUpdateComponent}
     ]
-   },
+  },
 
 
 

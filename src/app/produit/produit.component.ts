@@ -27,7 +27,7 @@ export class ProduitComponent implements OnInit {
   private designationProduit :string ;
   private prixProduit  : number ;
   private quantiteProduit : number ;
-  private myIDS = [{}];
+  private produits = [{}];
 
 
   /* OUR CONSTRUCTOR */
@@ -39,21 +39,10 @@ export class ProduitComponent implements OnInit {
 
 
 
-  /*  GET ALL ProduitS DATA */
+  /*  GET ALL ProduitS DATA  Form the Service*/
   ProduitData() {
         this.service.getProduitData()
     .subscribe(value => {    console.log(value);   });
- /*
-    this.service.getCategorieData()
-    .subscribe(value => {
-      console.log(value);
-      value.forEach(element => {
-        console.log( "cats ids :" +element.categorieID);
-        var  categoriesID = element.categorieID;
-        console.log( "categoriesID :" +categoriesID);
-      });
-    });
-*/
   }
 
 
@@ -62,27 +51,12 @@ export class ProduitComponent implements OnInit {
 
 
 
-  /*  DELETE Produit THAT HAVE ID = ProduitID   */
-  DeleteProduit(){
-
-    this.service.DeleteProduitData(this.DeletedProduitID).subscribe((res: any) => { }, error =>   console.log(error)   );
-
-    console.log("DeletedProduitID is :  " + this.DeletedProduitID);
-
-    this.ProduitData();
-  }
-
-
-  onDelete(id?: number) {
-    if (confirm('Are you sure to delete this record ?') == true) {
-        this.toastr.warning("Deleted Successfully","Employee Register");
-    }
-  }
 
 
 
 
-  /*  ADD A NEW  Produit  */
+
+  /*  ADD A NEW  Produit To the Service  */
   AddProduit(   ){
 /*     this.prod.designation = this.designationProduit ;
     this.prod.prix = this.prixProduit ;
@@ -91,6 +65,7 @@ export class ProduitComponent implements OnInit {
     this.service.AddProduitData(this.prod);
  */
   }
+
 
 
 
@@ -103,33 +78,63 @@ export class ProduitComponent implements OnInit {
   } */
 
 
-  showadd(){
+
+
+
+
+  showadd( ){
+
+
     this.router.navigate(['add'], { relativeTo: this.route });
+
   }
-  showupdate(){
-    this.router.navigate(['update'], { relativeTo: this.route });
+
+
+          /*  DELETE Produit THAT HAVE ID = ProduitID  from  the Service */
+  DeleteProduit(id: number) {
+    if (confirm('Are you sure to delete the product ID  :  ' + id) == true)
+    {
+
+  this.service.DeleteProduitData(id).subscribe((res: any) => { }, error =>   console.log(error)   );
+
+  console.log("DeletedProduitID is :  " + id);
+
+  this.ProduitData();
+
+  this.toastr.warning("Deleted Successfully","Employee Register");
+
+    }
   }
+
+
+
+
+
+
+      /*  Update Produit THAT HAVE ID = ProduitID  and Put them  into  the Service */
+  UpdateProduit( prod : ProduitModel  ){
+    console.log(prod);
+    /* Navigation using TS    ======>>>>         this.router.navigate(['update'], { relativeTo: this.route }); */
+/*
+    this.prod.nomProduit = this.UpdatedProduitNom ;
+    this.prod.ProduitID = this.UpdatedProduitID ;
+    this.service.UpdateProduitData(  this.prod) ; */
+  }
+
+
+
+
 
 
 
   ngOnInit() {
 
- /*       this.service.getCategorieData()
+     this.service.getProduitData()
                 .subscribe( res => {
+                this.produits = res;
+               console.log(this.produits)
 
-                const localVar = JSON.stringify(res) ;
-               const array =JSON.parse(localVar);
-console.log("array"+localVar);
-
-               var obj = {};
-               array.forEach(element => {
-                  array.map(k => Object.keys(k).forEach(a => obj[a] = k[a]))
-               });
-
-
-               console.log(obj)
-
-            }) */
+            })
 
 
 

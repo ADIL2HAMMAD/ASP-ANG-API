@@ -1,12 +1,15 @@
+/* Models */
 import { CategorieModel } from './categorieModel.Model';
-import { Headers, Http, Response, RequestOptions, RequestMethod } from '@angular/http';
+import { ProduitModel } from './produitModel.model';
+
+/* imports */
+import { HttpModule,Headers, Http, Response, RequestOptions, RequestMethod } from '@angular/http';
 import { Injectable } from '@angular/core';
-import { HttpModule } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { HttpRequest } from 'selenium-webdriver/http';
-import { Key } from 'protractor';
-import { ProduitModel } from './produitModel.model';
+
+/* headers */
 var headers = new Headers({ 'Content-Type': 'application/json' });
 var options = new RequestOptions({ headers: headers });
 
@@ -19,16 +22,20 @@ var options = new RequestOptions({ headers: headers });
 export class ServiceService {
 
 
+  /* Server Settings */
   private Server = 'http://localhost:';
   private port = '17951'
   private CategorieApiUrl = '/api/Categorie/';
   private ProduitApiUrl = '/api/Produit/';
-
   private ServerWithCategorieApiUrl = this.Server+this.port + this.CategorieApiUrl;
   private ServerWithProduitApiUrl = this.Server + this.port + this.ProduitApiUrl;
 
 
+  /* Constructor */
   constructor( private http : Http ) { }
+
+
+
 
 
   /* ******************************************************************************************************** */
@@ -45,14 +52,14 @@ export class ServiceService {
 
   AddProduitData(Produit : ProduitModel ){
     /*  output of Produit is an array of Objects => JSON.stringify(Produit)  will  format the result to Json objects in order to post it to DB using our Web Api */
-
     return this.http.post(this.ServerWithProduitApiUrl, Produit ,options)
     .map(res =>  res.json())
     .subscribe( ) ;
   }
 
-  UpdateProduitData( Produit : ProduitModel ){
 
+
+  UpdateProduitData( Produit : ProduitModel ){
     let cat = JSON.stringify(Produit);
     let body = JSON.parse(cat);     console.log("Produit => body => idProduit   is : "+body.ProduitID  );
    return this.http.put(this.ServerWithProduitApiUrl+body.ProduitID , body ,options)

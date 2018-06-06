@@ -1,3 +1,4 @@
+/* Essential  Imports  */
 import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../../service.service';
@@ -13,6 +14,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';;
 })
 export class ProduitFormComponent implements OnInit {
 
+  /* Declarations */
   quantiteProduit: number;
   prixProduit: number;
   designationProduit: string;
@@ -23,22 +25,21 @@ export class ProduitFormComponent implements OnInit {
 
 
 
-
+/* constructor */
   constructor(private service : ServiceService , private  toast:ToastrService) { }
 
 
+
+  /* return Categorie ID that are displayed in dropDown list  as a Categorie Name */
   getid(event)   { this.selectedCategorieId = event.target.value; }
 
   /* Add a product informations to a post Method and save it in DB */
-
   addproduit(form ){
-
     this.prod.designation = this.designationProduit ;
     this.prod.prix = this.prixProduit ;
     this.prod.quantite = this.quantiteProduit ;
     this.prod.categorieID = this.selectedCategorieId ;
     /* console.log(this.prod); */
-
     this.service.AddProduitData(this.prod);
     this.resetfeilds(form);
     this.toast.success("Nouveau Produit ajouté avec succes" , "Ajout de Produit");
@@ -46,10 +47,13 @@ export class ProduitFormComponent implements OnInit {
 
 
 
+
+
+
+
   /* reset all Form fields */
   resetfeilds(form? : NgForm){
     form.reset();
-
     this.prod.produitID = null ;
     this.prod.categorieID = null ;
     this.prod.prix = null ;
@@ -64,12 +68,13 @@ export class ProduitFormComponent implements OnInit {
 
 
 
-  ngOnInit() {
 
-/*    this.toast.show("hello", "hi");*/
-    /* fill the DropDown list With Categorie Values in Order to Allow a user To choice a Categorie*/
+
+  ngOnInit() {
     /*  console.log(this.selectedCategorieId); */
-    this.service.getCategorieData()
+
+    /* I use it  in order to Fill Dropdwn list With all Categories Values  To avoid User Type any Default values  and Allow him user To choice a Categorie*/
+   this.service.getCategorieData()
     .subscribe(cat => {
       console.log(cat);
       this.categories = cat;
