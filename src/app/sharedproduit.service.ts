@@ -9,7 +9,8 @@ export class SharedproduitService {
 
 
 
-  private Produit : any  = {};
+   Produit=new ProduitModel();
+/*  private Produit =new ProduitModel()  ; */
 
   /* Produit Informations Getter For More  privacy */
    getProduit(){
@@ -25,10 +26,9 @@ export class SharedproduitService {
      /*  I  Use this  Method in order to Recap Produit Informations From Produit Component (when You click Icon Update)
      and put the  infomations in Produit Variable   ==> return is a ProduitModel (designation , prix ...)*/
 
-  ProduitToUpdate(produit? : ProduitModel){
-    const prod = JSON.stringify(produit);
-    console.log("return values  from SharedProdService ===>>>>   :"+prod);
-    this.Produit = prod ;
+  ProduitToUpdate(produit : ProduitModel){
+    this.Produit = produit ;
+    console.log("return values  from SharedProdService ===>>>>   :"+this.Produit);
     return this.Produit;
   }
 

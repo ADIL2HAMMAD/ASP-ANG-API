@@ -4,7 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../../service.service';
 import { ProduitModel } from '../../produitModel.model';
 import { NgForm } from '@angular/forms'
-import { FormControl, FormGroup, Validators } from '@angular/forms';;
+import { FormControl, FormGroup, Validators } from '@angular/forms';import { ActivatedRoute, Router } from '@angular/router';
+;
 
 
 @Component({
@@ -13,6 +14,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';;
   styleUrls: ['./produit-form.component.css']
 })
 export class ProduitFormComponent implements OnInit {
+
 
   /* Declarations */
   quantiteProduit: number;
@@ -26,7 +28,13 @@ export class ProduitFormComponent implements OnInit {
 
 
 /* constructor */
-  constructor(private service : ServiceService , private  toast:ToastrService) { }
+  constructor(
+    private service : ServiceService ,
+    private router : Router ,
+    private route : ActivatedRoute,
+    private  toast:ToastrService) { }
+
+
 
 
 
@@ -43,6 +51,7 @@ export class ProduitFormComponent implements OnInit {
     this.service.AddProduitData(this.prod);
     this.resetfeilds(form);
     this.toast.success("Nouveau Produit ajouté avec succes" , "Ajout de Produit");
+
   }
 
 

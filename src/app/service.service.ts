@@ -61,9 +61,9 @@ export class ServiceService {
 
 
   UpdateProduitData( Produit : ProduitModel ){
-    let cat = JSON.stringify(Produit);
-    let body = JSON.parse(cat);     console.log("Produit => body => idProduit   is : "+body.ProduitID  );
-   return this.http.put(this.ServerWithProduitApiUrl+body.ProduitID , body ,options)
+    let body = JSON.stringify(Produit);
+
+   return this.http.put(this.ServerWithProduitApiUrl+JSON.stringify(Produit.produitID) , body ,options)
     .map(res => res.json())
     .subscribe();
   }

@@ -24,6 +24,7 @@ export class ProduitComponent implements OnInit {
   private  selectedCategorieId : number ;
   private produits = [{}];
    ProduitToUpdateItem = new ProduitModel();
+   check = false;
 
 
   /* OUR CONSTRUCTOR */
@@ -53,31 +54,18 @@ export class ProduitComponent implements OnInit {
 
 
 
-
-
-
-
-
-
-  /*  ADD A NEW  Produit To the Service  */
-  AddProduit(   ){
-/*     this.prod.designation = this.designationProduit ;
-    this.prod.prix = this.prixProduit ;
-    this.prod.quantite = this.quantiteProduit ;
-    this.prod.categorieID = this.selectedCategorieId ;
-    this.service.AddProduitData(this.prod);
- */
-  }
-
-
-
-
-
-
   showadd( )
   {
     this.router.navigate(['add'], { relativeTo: this.route });
+
+    this.check = true;
    }
+
+
+
+
+
+
 
 
 
@@ -88,6 +76,7 @@ export class ProduitComponent implements OnInit {
       this.service.DeleteProduitData(id).subscribe((res: any) => { }, error =>   console.log(error)   );
       console.log("DeletedProduitID is :  " + id);
       this.toastr.error("Please Refresh Your Page To Apply All Your Modification","Deleted Successfully");
+      this.router.navigate(['./../'] , {relativeTo : this.route});
     }
   }
 
@@ -101,12 +90,10 @@ export class ProduitComponent implements OnInit {
     this.ProduitToUpdateItem= prod;
 
     this.sharedproduitservices.ProduitToUpdate(this.ProduitToUpdateItem);
-    /* Navigation using TS    ======>>>>         this.router.navigate(['update'], { relativeTo: this.route }); */
 
-/*     this.prod.designation = "" ;
-    this.prod.prix =0 ;
-    this.prod.quantite = 0 ;
-    this.service.UpdateProduitData(  this.prod) ; */
+    this.check = true
+    /* Navigation using TS    ======>>>>    this.router.navigate(['update'], { relativeTo: this.route });   */
+
   }
 
 

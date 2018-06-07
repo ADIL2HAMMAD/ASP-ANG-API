@@ -6,7 +6,7 @@ import { ProduitComponent } from './produit/produit.component';
 import { CategorieComponent } from './categorie/categorie.component';
 import {HomeComponent } from './home/home.component';
 import { ProduitFormComponent } from './produit/produit-form/produit-form.component';
-import { ProduitFormUpdateComponent } from './produit-form-update/produit-form-update.component';
+import { ProduitFormUpdateComponent } from './produit/produit-form-update/produit-form-update.component';
 
 
 

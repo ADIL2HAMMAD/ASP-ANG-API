@@ -2,7 +2,7 @@
 <div class="main-login main-center">
 
   <form #prodform="ngForm">
-
+    <h3> Ajouter Produit </h3>
     <div class="form-group">
       <label for="designation" class="cols-sm-2 control-label">Designation </label>
       <div class="cols-sm-10">
@@ -48,12 +48,11 @@
 
 
     <div class="form-group ">
-    <div class="  col-sm-8">
-        <button type="submit"  [disabled]="!prodform.valid"  (click)="addproduit(prodform);" id="button" class="btn btn-success btn-lg btn-block ">Submit</button>
-    </div>
-    <div class=" col-sm-4 ">
-      <button type="button"  (click)="resetfeilds(prodform);"  id="button" class="btn btn-secondary btn-lg btn-block ">reset </button>
-    </div>
+
+        <button type="submit"  [disabled]="!prodform.valid" routerLink="/produit"   (click)="addproduit(prodform);" id="button" class="btn btn-success btn-lg btn-block ">Submit</button>
+
+      <button type="button"  routerLink="/categorie"  id="button" class="btn btn-secondary btn-lg btn-block ">Go To Produit </button>
+
   </div>
 
 

@@ -1,8 +1,8 @@
+
 /* Import of essential Packages */
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ServiceService } from './service.service';
 import { HttpModule } from '@angular/http';
 import { ToastrModule  } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -18,13 +18,15 @@ import { HomeComponent } from './home/home.component';
 import { CategorieFormComponent } from './categorie/categorie-form/categorie-form.component';
 import { CategorieListComponent } from './categorie/categorie-list/categorie-list.component';
 import { ProduitFormComponent } from './produit/produit-form/produit-form.component';
+import { ProduitFormUpdateComponent } from './produit/produit-form-update/produit-form-update.component';
 
 
 
-/* inmport of Routing File */
+/* inmport of Routing File  & Services*/
 import {routes} from './routing.routing';
-import { ProduitFormUpdateComponent } from './produit-form-update/produit-form-update.component';
 import { SharedproduitService } from './sharedproduit.service';
+import { ServiceService } from './service.service';
+
 
 
 
