@@ -3,7 +3,6 @@ import { ModuleWithProviders } from '@angular/core';
 import {Routes , RouterModule  } from '@angular/router';
 
 import { ProduitComponent } from './produit/produit.component';
-import { CategorieComponent } from './categorie/categorie.component';
 import {HomeComponent } from './home/home.component';
 import { ProduitFormComponent } from './produit/produit-form/produit-form.component';
 import { ProduitFormUpdateComponent } from './produit/produit-form-update/produit-form-update.component';
@@ -20,10 +19,6 @@ const app_route: Routes = [
     component: HomeComponent,
   },
 
-  {
-    path: 'categorie',
-    component: CategorieComponent,
-  },
   {
     path: '*',
     component: HomeComponent

@@ -13,13 +13,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { ProduitComponent } from './produit/produit.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { CategorieComponent } from './categorie/categorie.component';
 import { HomeComponent } from './home/home.component';
-import { CategorieFormComponent } from './categorie/categorie-form/categorie-form.component';
-import { CategorieListComponent } from './categorie/categorie-list/categorie-list.component';
 import { ProduitFormComponent } from './produit/produit-form/produit-form.component';
 import { ProduitFormUpdateComponent } from './produit/produit-form-update/produit-form-update.component';
-
 
 
 /* inmport of Routing File  & Services*/
@@ -38,10 +34,7 @@ import { ServiceService } from './service.service';
     AppComponent,
     ProduitComponent,
     NavbarComponent,
-    CategorieComponent,
     HomeComponent,
-    CategorieFormComponent,
-    CategorieListComponent,
     ProduitFormComponent,
     ProduitFormUpdateComponent
   ],

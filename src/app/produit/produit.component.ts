@@ -1,7 +1,6 @@
 import { SharedproduitService } from './../sharedproduit.service';
 import { routes } from './../routing.routing';
 import { Observable } from 'rxjs/Observable';
-import { CategorieComponent } from './../categorie/categorie.component';
 import { ProduitModel } from './../produitModel.model';
 import { ServiceService } from './../service.service';
 import { Component, OnInit } from '@angular/core';
