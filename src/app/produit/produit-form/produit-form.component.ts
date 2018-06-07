@@ -51,7 +51,7 @@ export class ProduitFormComponent implements OnInit {
     this.service.AddProduitData(this.prod);
     this.resetfeilds(form);
     this.toast.success("Nouveau Produit ajouté avec succes" , "Ajout de Produit");
-
+    this.router.navigate(['./../../home'] , {relativeTo : this.route});
   }
 
 

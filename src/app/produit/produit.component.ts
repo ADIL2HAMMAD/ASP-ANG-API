@@ -7,6 +7,7 @@ import { ServiceService } from './../service.service';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Router , ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-produit',
@@ -24,7 +25,7 @@ export class ProduitComponent implements OnInit {
   private  selectedCategorieId : number ;
   private produits = [{}];
    ProduitToUpdateItem = new ProduitModel();
-   check = false;
+   check = false ;
 
 
   /* OUR CONSTRUCTOR */
@@ -33,8 +34,7 @@ export class ProduitComponent implements OnInit {
     private  sharedproduitservices:SharedproduitService,
     private toastr : ToastrService,
     private router : Router ,
-    private route : ActivatedRoute )  {
-  }
+    private route : ActivatedRoute , )  {}
 
 
 
@@ -57,8 +57,7 @@ export class ProduitComponent implements OnInit {
   showadd( )
   {
     this.router.navigate(['add'], { relativeTo: this.route });
-
-    this.check = true;
+    this.check = true ;
    }
 
 
@@ -74,9 +73,11 @@ export class ProduitComponent implements OnInit {
     if (confirm('Are you sure to delete the product ID  :  ' + id) == true)
     {
       this.service.DeleteProduitData(id).subscribe((res: any) => { }, error =>   console.log(error)   );
-      console.log("DeletedProduitID is :  " + id);
-      this.toastr.error("Please Refresh Your Page To Apply All Your Modification","Deleted Successfully");
+
+      this.toastr.error("Deleted Successfully ","Deleted Product");
+
       this.router.navigate(['./../'] , {relativeTo : this.route});
+
     }
   }
 
@@ -87,16 +88,15 @@ export class ProduitComponent implements OnInit {
 
       /*  Update Produit THAT HAVE ID = ProduitID  and Put them  into  the Service */
   UpdateProduit( prod : ProduitModel  ){
+
     this.ProduitToUpdateItem= prod;
 
     this.sharedproduitservices.ProduitToUpdate(this.ProduitToUpdateItem);
 
-    this.check = true
-    /* Navigation using TS    ======>>>>    this.router.navigate(['update'], { relativeTo: this.route });   */
+    this.check = true ;
+
 
   }
-
-
 
 
 

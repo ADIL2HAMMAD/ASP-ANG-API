@@ -57,9 +57,6 @@ private Produit=new  ProduitModel()  ;
      this.Produit.designation = this.designationProduit ;
     this.Produit.prix = this.prixProduit ;
      this.Produit.quantite  =this.quantiteProduit ;
-
-     console.log(this.Produit);
-
      this.service.UpdateProduitData(this.Produit );
     // this.service.UpdateProduitData(this.Produit)
   }
@@ -71,9 +68,9 @@ private Produit=new  ProduitModel()  ;
 
 
 
-  /* return To produit component  */
-  previous(){
-    this.router.navigate(['./../'] , {relativeTo : this.route});
+  /* return To homr component  */
+  home(){
+    this.router.navigate(['./../../home'] , {relativeTo : this.route});
   }
 
 
@@ -87,6 +84,7 @@ private Produit=new  ProduitModel()  ;
     /* return values of result array Key => values */
     const values = Object.keys(result).map(key=>result[key]);
 
+    /* put all produit values from produitComponent in Produit Model in this Class in order To update our produit and send Produit Model object in ServiceService  */
     this.Produit.produitID = values[0] ;
     this.Produit.designation = values[1] ;
     this.Produit.prix = values[2] ;
@@ -94,6 +92,7 @@ private Produit=new  ProduitModel()  ;
     this.Produit.categorieID = values[4] ;
 
 
+    /* bind form field with Produit values  */
     this.designationProduit =this.Produit.designation ;
     this.prixProduit = this.Produit.prix ;
     this.quantiteProduit = this.Produit.quantite ;

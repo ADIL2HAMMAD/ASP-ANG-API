@@ -86,7 +86,7 @@
 
 
 
-<div class="row" [hidden]="check">
+<div class="row"   [hidden]="check">
     <div>
       <button   (click)="showadd();" class="btn btn-success pull-right" style="margin: 7px 30px; padding: 7px 20px;">Ajouter Produit</button>
     </div>
@@ -109,7 +109,7 @@
 
 
           <td >
-            <a   routerLink="./update"    (click)="UpdateProduit(prod);"     class="btn" >           <i class="fa fa-pencil-square-o">    </i>          </a>
+            <a   routerLink="./update"    (click)="UpdateProduit(prod);"     class="btn" name="btnupdate" id="btnupdate" >           <i class="fa fa-pencil-square-o">    </i>          </a>
             <a   (click)="DeleteProduit(prod.produitID);"      class="btn text-danger">                <i class="fa fa-trash-o">                     </i>          </a>
           </td>
         </tr>
